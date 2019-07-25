@@ -31,13 +31,13 @@ So add `version:'3'` .Now we can define the services.
 ```
 services:
     web:
-      build:
-      command: python src/profiles_project/manage.py runserver 0.0.0.0:8000 # path of the manage file 
+      build: .
+      command: python <path to migrate>/manage.py runserver 0.0.0.0:8000 # path of the manage file 
       volumes: 
         - .:/code  #maps the volume from the local volume to the docker.when a change is made in the source code it will simultanously  change the code in the docker container.
-      port:
+      ports:
         - "8000:8000" # we are creating a port from our container to our local machine. Here in the example when our running our devolopment server port 8000 it will map that to our host machine. When we have access to port 8000 to the host machine will will fold our the connection to docker container.
 ```   
 Next is set up out database for our for project.
-So add a migration command to migrate our project.So run the command in the terminal `docker-compose run web python src/project_files/manage.py migrate` this command just create a docker container for us.
+So add a migration command to migrate our project.So run the command in the terminal `docker-compose run web python <path to migrate>/manage.py migrate` this command just create a docker container for us.
         you can also manually build the container using the command in the terminal `docker-compose build` you can see that its running everything that we defined. Now the image is create it `docker-compose up` atomatically will build it.
