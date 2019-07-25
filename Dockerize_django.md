@@ -28,7 +28,7 @@ So for a simple docker file this is enough. Next we have to compose the docker c
 In the docker-compose we have to specify which version of the docker compose syntax we are using. We are using the docker-compose version 3 .
 
 So add `version:'3'` .Now we can define the services.
-``
+```
 services:
     web:
       build:
@@ -37,7 +37,7 @@ services:
         - .:/code  #maps the volume from the local volume to the docker.when a change is made in the source code it will simultanously  change the code in the docker container.
       port:
         - "8000:8000" # we are creating a port from our container to our local machine. Here in the example when our running our devolopment server port 8000 it will map that to our host machine. When we have access to port 8000 to the host machine will will fold our the connection to docker container.
-``      
+```   
 Next is set up out database for our for project.
 So add a migration command to migrate our project.So run the command in the terminal `docker-compose run web python src/project_files/manage.py migrate` this command just create a docker container for us.
         you can also manually build the container using the command in the terminal `docker-compose build` you can see that its running everything that we defined. Now the image is create it `docker-compose up` atomatically will build it.
