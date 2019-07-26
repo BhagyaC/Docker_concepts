@@ -1,5 +1,5 @@
 # How to dockerize  a Django app
-##(for code please check repo Django_basics)
+## *(for code please check repo Django_basics)
 This is all about how to package and distribute an API build in Django and Django REST Framework using docker containers.
 
 Docker is an open platform that performs Operating System level virtualization also known as containerization.
